@@ -4,6 +4,7 @@ class Routes {
   static String onBoarding = '/onBoarding';
 
   static String register = '/register';
+  static String splash = '/splash';
 }
 
 class RoutesNames {
@@ -11,4 +12,5 @@ class RoutesNames {
   static String dashboard = 'dashboard';
   static String onBoarding = 'onBoarding';
   static String register = 'register';
+  static String splash = 'splash';
 }

@@ -7,7 +7,23 @@ class BoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
-      pages: listPagesViewModel,
+      pages: [
+        PageViewModel(
+          title: "First Title",
+          body: "First Body",
+          image: Image.asset("assets/images/1.png"),
+        ),
+        PageViewModel(
+          title: "Second Title",
+          body: "Second Body",
+          image: Image.asset("assets/images/2.png"),
+        ),
+        PageViewModel(
+          title: "Third Title",
+          body: "Third Body",
+          image: Image.asset("assets/images/3.png"),
+        ),
+      ],
       showSkipButton: true,
       skip: const Text("Skip"),
       next: const Text("Next"),

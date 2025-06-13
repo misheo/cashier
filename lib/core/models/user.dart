@@ -1,26 +1,47 @@
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
 
-
+@HiveType(typeId: 0) // Unique ID for Hive type
 @JsonSerializable()
 class User {
-  String? id;
-  String? name;
-  String? email;
-  String? password;
-  String? phone;
+  @HiveField(0)
+  String id;
+
+  @HiveField(1)
+  String name;
+
+  @HiveField(2)
+  String email;
+
+  @HiveField(3)
+  String password;
+
+  @HiveField(4)
+  String phone;
+
+  @HiveField(5)
   String? image;
+
+  @HiveField(6)
   String? role;
+
+  @HiveField(7)
   String? status;
+
+  @HiveField(8)
   String? createdAt;
+
+  @HiveField(9)
   String? updatedAt;
+
   User({
-    this.id,
-    this.name,
-    this.email,
-    this.password,
-    this.phone,
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
     this.image,
     this.role,
     this.status,

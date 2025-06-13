@@ -1,4 +1,6 @@
 import 'package:cashier/features/authentication/presentation/manager/login_cubit.dart';
+import 'package:cashier/features/onboarding/presentation/pages/boarding_screen.dart';
+import 'package:cashier/features/onboarding/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +15,7 @@ class AppRouter {
   static final GoRouter goRouter = GoRouter(
     debugLogDiagnostics: devMood,
     // redirectLimit: 1,
-    initialLocation: isFirstTime ? Routes.onBoarding : Routes.login,
+    initialLocation: isFirstTime ? Routes.splash : Routes.splash,
     // refreshListenable: Listenable.merge([]),
     redirect: (context, state) {
       // if (redirect) {
@@ -26,11 +28,16 @@ class AppRouter {
       return null;
     },
     routes: [
-      // GoRoute(
-      //   path: Routes.onBoarding,
-      //   name: RoutesNames.onBoarding,
-      //   builder: (context, state) => const OnBoardingScreen(),
-      // ),
+      GoRoute(
+        path: Routes.splash,
+        name: RoutesNames.splash,
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: Routes.onBoarding,
+        name: RoutesNames.onBoarding,
+        builder: (context, state) => const BoardingScreen(),
+      ),
       GoRoute(
         path: Routes.login,
         name: RoutesNames.login,
