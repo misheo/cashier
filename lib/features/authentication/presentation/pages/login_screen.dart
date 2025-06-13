@@ -11,9 +11,14 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       // appBar: ,
       body: Column(
-
         children: [
-
+          Text(
+            'Login Screen',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          // TextButton(onPressed: () {
+          //   help.navigateTo(context, '/home');
+          // }, child: const Text('Go to Home'))
         ],
       ),
     );
