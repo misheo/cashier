@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../core/models/user.dart';
+import '../../../../core/utils/result.dart';
 
 class AuthRepository {
   final _uuid = Uuid();
@@ -37,16 +38,21 @@ class AuthRepository {
     await box.put(user.id, user);
   }
 
-  Future<User?> login({required String email, required String password}) async {
+  Future<Result<User?>> login({
+    required String email,
+    required String password,
+  }) async {
     final box = await Hive.openBox<User>(_boxName);
     final hashedPassword = sha256.convert(utf8.encode(password)).toString();
 
     try {
-      return box.values.firstWhere(
-        (u) => u.email == email && u.password == hashedPassword,
+      return Result.success(
+        box.values.firstWhere(
+          (u) => u.email == email && u.password == hashedPassword,
+        ),
       );
     } catch (e) {
-      return null;
+      return Result.failure({'message': e.toString()});
     }
   }
 

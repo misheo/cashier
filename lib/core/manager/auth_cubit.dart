@@ -17,9 +17,9 @@ class AuthCubit extends Cubit<AuthState> {
       email: username,
       password: password,
     );
-    // result.when(
-    //   success: (user) => emit(AuthState.auth(user)),
-    //   failure: (error) => emit(AuthState.error(error)),
-    // );
+    result.where(
+      success: (user) => emit(AuthState.auth(user)),
+      failure: (error) => emit(AuthState.error(error)),
+    );
   }
 }
