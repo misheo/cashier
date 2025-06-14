@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
 
@@ -37,7 +38,11 @@ class AuthRepository {
     await box.put(user.id, user);
   }
 
-  Future<User?> login(String email, String password) async {
+  Future<User?> login(
+    BuildContext context, {
+    required String email,
+    required String password,
+  }) async {
     final box = await Hive.openBox<User>(_boxName);
     final hashedPassword = sha256.convert(utf8.encode(password)).toString();
 

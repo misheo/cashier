@@ -1,4 +1,7 @@
+import 'package:cashier/core/utils/constants.dart';
 import 'package:cashier/core/utils/help.dart';
+import 'package:cashier/core/utils/local_storege.dart';
+import 'package:flutter/cupertino.dart';
 
 class BoardingHelp extends Help {
   // List<PageViewModel> boardingPagesViewModel() {
@@ -20,4 +23,14 @@ class BoardingHelp extends Help {
   //     ),
   //   ];
   // }
+  Future<void> handelSplashNavigation(BuildContext context) async {
+    String? uid = await LocalStorage().getString(PreferencesKeys.uid);
+    if (uid != null && uid.isNotEmpty) {
+      // Navigate to the home page if user is already registered
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      // Navigate to the onboarding page if user is not registered
+      Navigator.pushReplacementNamed(context, '/onboarding');
+    }
+  }
 }
