@@ -10,4 +10,16 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepository _authRepository;
   AuthCubit(this._authRepository) : super(const AuthState.initial());
+
+  Future<void> login(String username, String password) async {
+    emit(const AuthState.loading());
+    final result = await _authRepository.login(
+      email: username,
+      password: password,
+    );
+    // result.when(
+    //   success: (user) => emit(AuthState.auth(user)),
+    //   failure: (error) => emit(AuthState.error(error)),
+    // );
+  }
 }
