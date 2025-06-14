@@ -1,3 +1,4 @@
+import 'package:cashier/core/router/routes.dart';
 import 'package:cashier/core/utils/constants.dart';
 import 'package:cashier/core/utils/help.dart';
 import 'package:cashier/core/utils/local_storege.dart';
@@ -27,10 +28,10 @@ class BoardingHelp extends Help {
     String? uid = await LocalStorage().getString(PreferencesKeys.uid);
     if (uid != null && uid.isNotEmpty) {
       // Navigate to the home page if user is already registered
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, RoutesNames.dashboard);
     } else {
       // Navigate to the onboarding page if user is not registered
-      Navigator.pushReplacementNamed(context, '/onboarding');
+      Navigator.pushReplacementNamed(context, RoutesNames.login);
     }
   }
 }
