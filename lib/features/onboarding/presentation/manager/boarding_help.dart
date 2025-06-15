@@ -3,6 +3,7 @@ import 'package:cashier/core/utils/constants.dart';
 import 'package:cashier/core/utils/help.dart';
 import 'package:cashier/core/utils/local_storege.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 class BoardingHelp extends Help {
   // List<PageViewModel> boardingPagesViewModel() {
@@ -26,12 +27,14 @@ class BoardingHelp extends Help {
   // }
   Future<void> handelSplashNavigation(BuildContext context) async {
     String? uid = await LocalStorage().getString(PreferencesKeys.uid);
+    print("uid: $uid");
     if (uid != null && uid.isNotEmpty) {
       // Navigate to the home page if user is already registered
-      Navigator.pushReplacementNamed(context, RoutesNames.dashboard);
+      context.goNamed(RoutesNames.dashboard);
     } else {
       // Navigate to the onboarding page if user is not registered
-      Navigator.pushReplacementNamed(context, RoutesNames.login);
+      print("Go to login page");
+      context.goNamed(RoutesNames.login);
     }
   }
 }
