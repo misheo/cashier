@@ -12,10 +12,11 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context)
   {
-    final BoardingHelp help = BoardingHelp();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final BoardingHelp help = BoardingHelp();
 
-    help.handelSplashNavigation(context);
-
+      help.handelSplashNavigation(context);
+    });
     return Scaffold(
       body: Center(child: Assets.logo.logo.image(width: 200)),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/constants.dart';
+
 class AppMainContainer extends StatelessWidget {
   const AppMainContainer({
     super.key,
@@ -33,6 +35,7 @@ class AppMainContainer extends StatelessWidget {
       padding: padding ?? EdgeInsets.symmetric(horizontal: 20 , vertical: 10),
       decoration: BoxDecoration(
         color: color ?? Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(containerRadius),
         boxShadow: shadow
             ? [
                 BoxShadow(

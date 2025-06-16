@@ -13,6 +13,7 @@ class LoginWebWidget extends StatelessWidget {
     return Center(
       child: AppMainContainer(
         width: help.getWidth(context)/3,
+        height: help.getHeight(context)/2,
         child: Column(
           children: [
             Text(context.tr('login'))
