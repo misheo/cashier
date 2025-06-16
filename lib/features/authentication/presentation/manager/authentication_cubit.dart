@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:cashier/core/router/routes.dart';
 import 'package:cashier/core/utils/help.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../domain/repositories/auth_repo.dart';
 
@@ -21,7 +23,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     isPasswordVisible = !isPasswordVisible;
   }
 
-  void login() async {
+  void login(BuildContext context) async {
     if(formKey.currentState!.validate()) {
       final res = await authRepo.login(
         email: userNameController.text,
@@ -38,5 +40,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
   }
 
-  void createAccount(BuildContext context) {}
+  void createAccount(BuildContext context) {
+    context.pushReplacementNamed(RoutesNames.registerDev) ;
+  }
 }

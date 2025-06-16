@@ -70,7 +70,7 @@ class _LoginWebWidgetState extends State<LoginWebWidget> {
                     AppButton(
                       text: context.tr('login'),
                       onTap: () {
-                        provider.login();
+                        provider.login(context);
                       },
                       bgColor: Theme.of(context).colorScheme.secondaryContainer,
                     ),

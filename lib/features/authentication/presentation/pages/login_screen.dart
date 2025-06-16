@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/help.dart';
+import '../../../../core/widgets/app_scaffold.dart';
 import '../widgets/login/login_mobile_widget.dart';
 import '../widgets/login/login_tablet_widget.dart';
 import '../widgets/login/login_web_widget.dart';
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Help help = Help();
-    return Scaffold(
+    return AppScaffold(
       // appBar: ,
       body: LayoutBuilder(builder: (context, constraints) {
         if(help.isMobile(context)){

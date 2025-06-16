@@ -68,7 +68,7 @@ class _LoginMobileWidgetState extends State<LoginMobileWidget> {
                 AppButton(
                   text: context.tr('login'),
                   onTap: () {
-                    provider.login();
+                    provider.login(context);
                   },
                   bgColor: Theme.of(context).colorScheme.secondaryContainer,
                 ),
