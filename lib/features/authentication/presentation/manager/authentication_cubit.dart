@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/repositories/auth_repo.dart';
+
 part 'authentication_state.dart';
 part 'authentication_cubit.freezed.dart';
 
