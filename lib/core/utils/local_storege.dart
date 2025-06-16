@@ -12,6 +12,17 @@ class LocalStorage {
     prefs = await SharedPreferences.getInstance();
   }
 
+/* <<<<<<<<<<<<<<  ✨ Windsurf Command ⭐ >>>>>>>>>>>>>>>> */
+  /// Sets a value in local storage with the given [key] to the given integer
+  /// [value].
+  ///
+  /// Returns a [Future] that completes when the data has been written to local
+  /// storage.
+  ///
+  /// The [key] must not be null.
+  ///
+  /// The [value] must not be null.
+/* <<<<<<<<<<  c5c260e1-8280-403d-9396-630f1fc07e68  >>>>>>>>>>> */
   Future<void> setInt(String key, int value) async {
     // Implementation for setting an integer in local storage
     await prefs.setInt(key, value);

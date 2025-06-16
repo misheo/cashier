@@ -30,5 +30,6 @@
   "cartCheckout": "Checkout",
   "cartCheckoutTitle": "Checkout",
   "cartCheckoutSubTitle": "Please fill in the data below",
-  "cartCheckoutName": "Name"
+  "cartCheckoutName": "Name" ,
+  "username": "User Name"
 }

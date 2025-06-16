@@ -8,7 +8,12 @@ part 'login_cubit.freezed.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(const LoginState.initial());
   final formKey = GlobalKey<FormState>();
+  bool isPasswordVisible = false;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void changePasswordVisibility() {
+    isPasswordVisible = !isPasswordVisible;
+  }
 
 }
