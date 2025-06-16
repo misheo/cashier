@@ -31,5 +31,6 @@
   "cartCheckoutTitle": "Checkout",
   "cartCheckoutSubTitle": "Please fill in the data below",
   "cartCheckoutName": "Name" ,
-  "username": "User Name"
+  "username": "User Name" ,
+  "select_options": "Select options"
 }

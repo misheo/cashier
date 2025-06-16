@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/constants.dart';
 import 'app_text_field.dart';
 
 class TextFieldsWithLabel extends StatelessWidget {
@@ -46,7 +47,7 @@ class TextFieldsWithLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 5,
+      spacing: fieldSpacing,
       children: [
         Text(labelText , style: Theme.of(context).textTheme.headlineSmall,),
         AppTextFormField(

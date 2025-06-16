@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/constants.dart';
+
 
 class AppTextFormField extends StatelessWidget {
   const AppTextFormField(
@@ -50,7 +52,7 @@ class AppTextFormField extends StatelessWidget {
           contentPadding: contentPadding ??
               EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(containerRadius),
               borderSide: const BorderSide(
                 color: Color.fromARGB(0, 49, 49, 49),
                 width: 1.3,

@@ -16,6 +16,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   Help help = Help();
   final formKey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
+  bool isPasswordVerifyVisible = false;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
 
