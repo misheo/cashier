@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/containers/app_main_container.dart';
 import '../../../../../core/widgets/text_fields/app_text_field.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
@@ -31,7 +32,7 @@ class _LoginWebWidgetState extends State<LoginWebWidget> {
             height: help.getHeight(context) / 2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              spacing:  20,
+              spacing: 20,
               children: [
                 Text(
                   context.tr('login'),
@@ -50,18 +51,31 @@ class _LoginWebWidgetState extends State<LoginWebWidget> {
                   controller: provider.passwordController,
                   validator: (String? value) {},
                   obscureText: provider.isPasswordVisible,
-                  suffixIcon:  IconButton(
-                    icon : Icon(provider.isPasswordVisible ? Icons.visibility : Icons.visibility_off),
-                    onPressed: (){
-                      setState(() {
-
-                      });
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      provider.isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      setState(() {});
                       provider.changePasswordVisibility();
                     },
                   ),
                   showCounter: false,
                 ),
-
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppButton(
+                      text: context.tr('login'),
+                      onTap: () {
+                        provider.login();
+                      },
+                      bgColor: Theme.of(context).colorScheme.secondaryContainer,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

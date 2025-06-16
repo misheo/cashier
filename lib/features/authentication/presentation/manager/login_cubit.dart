@@ -16,4 +16,6 @@ class LoginCubit extends Cubit<LoginState> {
     isPasswordVisible = !isPasswordVisible;
   }
 
+  void login() {}
+
 }
