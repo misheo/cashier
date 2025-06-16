@@ -25,8 +25,8 @@ class BoardingHelp extends Help {
   //     ),
   //   ];
   // }
-  Future<void> handelSplashNavigation(BuildContext context) async {
-    String? uid = await LocalStorage().getString(PreferencesKeys.uid);
+  handelSplashNavigation(BuildContext context) {
+    String? uid = LocalStorage().getString(PreferencesKeys.uid);
     print("uid: $uid");
     if (uid != null && uid.isNotEmpty) {
       // Navigate to the home page if user is already registered

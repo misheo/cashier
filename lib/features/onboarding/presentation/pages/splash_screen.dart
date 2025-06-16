@@ -5,24 +5,17 @@ import '../../../../core/router/routes.dart';
 import '../../../../gen/assets.gen.dart';
 import '../manager/boarding_help.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
 
-class _SplashScreenState extends State<SplashScreen> {
-  final BoardingHelp help = BoardingHelp();
   @override
-  void initState() {
+  Widget build(BuildContext context)
+  {
+    final BoardingHelp help = BoardingHelp();
+
     help.handelSplashNavigation(context);
-    context.goNamed(RoutesNames.login);
-    super.initState();
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(child: Assets.logo.logo.image(width: 200)),
     );

@@ -8,6 +8,9 @@ class AppMainContainer extends StatelessWidget {
     this.height,
     this.color,
     this.shadow = true,
+    this.padding,
+    this.alignment,
+    this.margin,
   });
   final Widget child;
   final double? width;
@@ -15,13 +18,21 @@ class AppMainContainer extends StatelessWidget {
   final Color? color;
   final bool shadow;
 
+  final EdgeInsetsGeometry? padding;
+
+  final AlignmentGeometry? alignment;
+
+  final EdgeInsetsGeometry? margin;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
+      margin: margin,
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 20 , vertical: 10),
       decoration: BoxDecoration(
-        color: color,
+        color: color ?? Theme.of(context).colorScheme.primary,
         boxShadow: shadow
             ? [
                 BoxShadow(

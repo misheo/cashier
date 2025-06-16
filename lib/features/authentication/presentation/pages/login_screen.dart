@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/help.dart';
+import '../widgets/login/login_mobile_widget.dart';
+import '../widgets/login/login_web_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -10,17 +12,15 @@ class LoginScreen extends StatelessWidget {
     final Help help = Help();
     return Scaffold(
       // appBar: ,
-      body: Column(
-        children: [
-          Text(
-            'Login Screen',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          // TextButton(onPressed: () {
-          //   help.navigateTo(context, '/home');
-          // }, child: const Text('Go to Home'))
-        ],
-      ),
+      body: LayoutBuilder(builder: (context, constraints) {
+        if(help.isMobile(context)){
+          return const LoginMobileWidget();
+        } else if(help.isTablet(context)){
+          return const LoginWebWidget();
+        } else {
+          return const LoginWebWidget();
+        }
+      }),
     );
   }
 }

@@ -8,29 +8,26 @@ class CashierApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EasyLocalization(
-      supportedLocales: [Locale('en', 'US'), Locale('ar', 'EG')],
-      path:
-          'assets/translations', // <-- change the path of the translation files
-      fallbackLocale: Locale('en', 'US'),
-      child: MaterialApp.router(
-        title: 'Cashier App',
+    return MaterialApp.router(
+      title: 'Cashier App',
 
-        // theme: ThemeData(
-        //   useMaterial3: true,
-        //   colorSchemeSeed: Colors.blue,
-        //   brightness: Brightness.light,
-        //   textTheme: const TextTheme(
-        //     bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-        //     bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-        //     bodySmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
-        //   ),
-        // ),
-        routerDelegate: AppRouter.goRouter.routerDelegate,
-        routeInformationParser: AppRouter.goRouter.routeInformationParser,
-        routeInformationProvider: AppRouter.goRouter.routeInformationProvider,
-        debugShowCheckedModeBanner: false,
-      ),
+      // theme: ThemeData(
+      //   useMaterial3: true,
+      //   colorSchemeSeed: Colors.blue,
+      //   brightness: Brightness.light,
+      //   textTheme: const TextTheme(
+      //     bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+      //     bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+      //     bodySmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+      //   ),
+      // ),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      routerDelegate: AppRouter.goRouter.routerDelegate,
+      routeInformationParser: AppRouter.goRouter.routeInformationParser,
+      routeInformationProvider: AppRouter.goRouter.routeInformationProvider,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

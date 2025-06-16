@@ -12,4 +12,7 @@ class Help {
       MediaQuery.of(context).size.width >= 600 &&
       MediaQuery.of(context).size.width < 1024;
   bool isWeb(BuildContext context) => MediaQuery.of(context).size.width >= 1024;
+
+  getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+  getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 }
