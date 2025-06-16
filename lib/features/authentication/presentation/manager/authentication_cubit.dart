@@ -19,6 +19,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
 
+  final passwordVerifyController = TextEditingController();
+
+
+
   void changePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
   }

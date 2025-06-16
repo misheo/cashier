@@ -12,6 +12,10 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
   email: json['email'] as String,
   password: json['password'] as String,
   phone: json['phone'] as String,
+  permissions: (json['permissions'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  isAdmin: json['isAdmin'] as bool? ?? false,
   image: json['image'] as String?,
   role: json['role'] as String?,
   status: json['status'] as String?,
@@ -30,4 +34,6 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'status': instance.status,
   'createdAt': instance.createdAt,
   'updatedAt': instance.updatedAt,
+  'permissions': instance.permissions,
+  'isAdmin': instance.isAdmin,
 };

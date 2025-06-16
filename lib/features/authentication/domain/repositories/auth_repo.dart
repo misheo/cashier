@@ -16,6 +16,8 @@ class AuthRepository {
     required String email,
     required String password,
     required String phone,
+    bool isAdmin = false,
+    List<String> permissions = const [],
   }) async {
     final box = await Hive.openBox<User>(_boxName);
 
@@ -30,7 +32,9 @@ class AuthRepository {
       id: _uuid.v4(),
       name: name,
       email: email,
+      isAdmin: isAdmin,
       password: hashedPassword,
+      permissions: permissions,
       phone: phone,
       createdAt: DateTime.now().toIso8601String(),
     );
@@ -46,11 +50,15 @@ class AuthRepository {
     final hashedPassword = sha256.convert(utf8.encode(password)).toString();
 
     try {
-      return Result.success(
-        box.values.firstWhere(
-          (u) => u.email == email && u.password == hashedPassword,
-        ),
+      final User? user = box.values.firstWhere(
+        (u) => u.email == email && u.password == hashedPassword,
       );
+      if(user == null) {
+        return Result.failure({'message': 'User not found'});
+      }else {
+        return Result.success(user);
+      }
+
     } catch (e) {
       return Result.failure({'message': e.toString()});
     }
@@ -58,5 +66,6 @@ class AuthRepository {
 
   Future<void> logout() async {
     // clear current session if stored
+
   }
 }

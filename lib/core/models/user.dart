@@ -36,12 +36,20 @@ class User {
   @HiveField(9)
   String? updatedAt;
 
+  @HiveField(10)
+  List<String>? permissions;
+
+  @HiveField(11)
+  bool isAdmin ;
+
   User({
     required this.id,
     required this.name,
     required this.email,
     required this.password,
     required this.phone,
+    this.permissions,
+    this.isAdmin = false,
     this.image,
     this.role,
     this.status,
