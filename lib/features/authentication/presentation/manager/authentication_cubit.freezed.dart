@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'login_cubit.dart';
+part of 'authentication_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -66,13 +66,13 @@ mixin _$LoginState {
 /// @nodoc
 abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
-    LoginState value,
-    $Res Function(LoginState) then,
-  ) = _$LoginStateCopyWithImpl<$Res, LoginState>;
+    AuthenticationState value,
+    $Res Function(AuthenticationState) then,
+  ) = _$LoginStateCopyWithImpl<$Res, AuthenticationState>;
 }
 
 /// @nodoc
-class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
+class _$LoginStateCopyWithImpl<$Res, $Val extends AuthenticationState>
     implements $LoginStateCopyWith<$Res> {
   _$LoginStateCopyWithImpl(this._value, this._then);
 
@@ -200,7 +200,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements LoginState {
+abstract class _Initial implements AuthenticationState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -319,7 +319,7 @@ class _$LoadingLoginImpl implements LoadingLogin {
   }
 }
 
-abstract class LoadingLogin implements LoginState {
+abstract class LoadingLogin implements AuthenticationState {
   const factory LoadingLogin() = _$LoadingLoginImpl;
 }
 
@@ -438,7 +438,7 @@ class _$SuccessLoginImpl implements SuccessLogin {
   }
 }
 
-abstract class SuccessLogin implements LoginState {
+abstract class SuccessLogin implements AuthenticationState {
   const factory SuccessLogin() = _$SuccessLoginImpl;
 }
 
@@ -584,7 +584,7 @@ class _$ErrorLoginImpl implements ErrorLogin {
   }
 }
 
-abstract class ErrorLogin implements LoginState {
+abstract class ErrorLogin implements AuthenticationState {
   const factory ErrorLogin({required final String message}) = _$ErrorLoginImpl;
 
   String get message;

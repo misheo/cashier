@@ -7,7 +7,7 @@ import '../../../../../core/utils/help.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
-import '../../manager/login_cubit.dart';
+import '../../manager/authentication_cubit.dart';
 
 class LoginTabletWidget extends StatefulWidget {
   const LoginTabletWidget({super.key});
@@ -20,7 +20,7 @@ class _LoginTabletWidgetState extends State<LoginTabletWidget> {
   @override
   Widget build(BuildContext context) {
     final Help help = Help();
-    final provider = context.read<LoginCubit>();
+    final provider = context.read<AuthenticationCubit>();
 
     return Center(
       child: Column(

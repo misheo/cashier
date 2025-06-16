@@ -8,7 +8,7 @@ import '../../../../../core/widgets/containers/app_main_container.dart';
 import '../../../../../core/widgets/text_fields/app_text_field.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
-import '../../manager/login_cubit.dart';
+import '../../manager/authentication_cubit.dart';
 
 class LoginWebWidget extends StatefulWidget {
   const LoginWebWidget({super.key});
@@ -20,7 +20,7 @@ class LoginWebWidget extends StatefulWidget {
 class _LoginWebWidgetState extends State<LoginWebWidget> {
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<LoginCubit>();
+    final provider = context.read<AuthenticationCubit>();
     final Help help = Help();
     return Center(
       child: Row(

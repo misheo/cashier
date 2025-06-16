@@ -1,4 +1,4 @@
-import 'package:cashier/features/authentication/presentation/manager/login_cubit.dart';
+import 'package:cashier/features/authentication/presentation/manager/authentication_cubit.dart';
 import 'package:cashier/features/onboarding/presentation/pages/boarding_screen.dart';
 import 'package:cashier/features/onboarding/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class AppRouter {
         path: Routes.login,
         name: RoutesNames.login,
         builder: (context, state) => BlocProvider(
-          create: (context) => LoginCubit(),
+          create: (context) => AuthenticationCubit(),
           child: LoginScreen(),
         ),
         routes: [

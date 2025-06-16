@@ -2,11 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'login_state.dart';
-part 'login_cubit.freezed.dart';
+part 'authentication_state.dart';
+part 'authentication_cubit.freezed.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(const LoginState.initial());
+class AuthenticationCubit extends Cubit<AuthenticationState> {
+  AuthenticationCubit() : super(const AuthenticationState.initial());
   final formKey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
   final userNameController = TextEditingController();
@@ -17,5 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void login() {}
+
+  void createAccount(BuildContext context ) {}
 
 }
