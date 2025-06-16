@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_cubit.dart';
+part of 'user_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 );
 
 /// @nodoc
-mixin _$AuthState {
+mixin _$UserState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -64,22 +64,22 @@ mixin _$AuthState {
 }
 
 /// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
+abstract class $UserStateCopyWith<$Res> {
+  factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) =
+      _$UserStateCopyWithImpl<$Res, UserState>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
+class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
+    implements $UserStateCopyWith<$Res> {
+  _$UserStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -93,14 +93,14 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
     _$InitialImpl _value,
     $Res Function(_$InitialImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -111,7 +111,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AuthState.initial()';
+    return 'UserState.initial()';
   }
 
   @override
@@ -198,7 +198,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AuthState {
+abstract class _Initial implements UserState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -214,12 +214,12 @@ abstract class _$$AuthImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$AuthImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$AuthImpl>
     implements _$$AuthImplCopyWith<$Res> {
   __$$AuthImplCopyWithImpl(_$AuthImpl _value, $Res Function(_$AuthImpl) _then)
     : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -245,7 +245,7 @@ class _$AuthImpl implements Auth {
 
   @override
   String toString() {
-    return 'AuthState.auth(user: $user)';
+    return 'UserState.auth(user: $user)';
   }
 
   @override
@@ -259,7 +259,7 @@ class _$AuthImpl implements Auth {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -342,12 +342,12 @@ class _$AuthImpl implements Auth {
   }
 }
 
-abstract class Auth implements AuthState {
+abstract class Auth implements UserState {
   const factory Auth(final User user) = _$AuthImpl;
 
   User get user;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthImplCopyWith<_$AuthImpl> get copyWith =>
@@ -364,14 +364,14 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
     _$LoadingImpl _value,
     $Res Function(_$LoadingImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -382,7 +382,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'AuthState.loading()';
+    return 'UserState.loading()';
   }
 
   @override
@@ -469,7 +469,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements AuthState {
+abstract class Loading implements UserState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -485,14 +485,14 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$UserStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
     _$ErrorImpl _value,
     $Res Function(_$ErrorImpl) _then,
   ) : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -518,7 +518,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'AuthState.error(message: $message)';
+    return 'UserState.error(message: $message)';
   }
 
   @override
@@ -532,7 +532,7 @@ class _$ErrorImpl implements Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -615,12 +615,12 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements AuthState {
+abstract class Error implements UserState {
   const factory Error(final String message) = _$ErrorImpl;
 
   String get message;
 
-  /// Create a copy of AuthState
+  /// Create a copy of UserState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>

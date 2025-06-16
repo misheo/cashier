@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'cashier_app.dart';
 import 'core/utils/local_storege.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() async {
+  setUrlStrategy(PathUrlStrategy()); // 👈 This is the important line
+
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await LocalStorage().initPrefs();
