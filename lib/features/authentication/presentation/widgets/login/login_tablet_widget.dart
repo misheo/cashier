@@ -8,14 +8,14 @@ import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../manager/login_cubit.dart';
 
-class LoginMobileWidget extends StatefulWidget {
-  const LoginMobileWidget({super.key});
+class LoginTabletWidget extends StatefulWidget {
+  const LoginTabletWidget({super.key});
 
   @override
-  State<LoginMobileWidget> createState() => _LoginMobileWidgetState();
+  State<LoginTabletWidget> createState() => _LoginTabletWidgetState();
 }
 
-class _LoginMobileWidgetState extends State<LoginMobileWidget> {
+class _LoginTabletWidgetState extends State<LoginTabletWidget> {
   @override
   Widget build(BuildContext context) {
     final Help help = Help();

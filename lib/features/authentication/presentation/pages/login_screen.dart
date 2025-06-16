@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/help.dart';
 import '../widgets/login/login_mobile_widget.dart';
+import '../widgets/login/login_tablet_widget.dart';
 import '../widgets/login/login_web_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class LoginScreen extends StatelessWidget {
         if(help.isMobile(context)){
           return const LoginMobileWidget();
         } else if(help.isTablet(context)){
-          return const LoginWebWidget();
+          return const LoginTabletWidget();
         } else {
           return const LoginWebWidget();
         }
