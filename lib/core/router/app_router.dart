@@ -1,4 +1,5 @@
 import 'package:cashier/features/authentication/presentation/manager/authentication_cubit.dart';
+import 'package:cashier/features/authentication/presentation/pages/create_account_screen.dart';
 import 'package:cashier/features/onboarding/presentation/pages/boarding_screen.dart';
 import 'package:cashier/features/onboarding/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'routes.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>();
+  GlobalKey<NavigatorState>();
   static final GoRouter goRouter = GoRouter(
     debugLogDiagnostics: devMood,
     // redirectLimit: 1,
@@ -39,12 +40,22 @@ class AppRouter {
         builder: (context, state) => const BoardingScreen(),
       ),
       GoRoute(
+        path: Routes.registerDev,
+        name: RoutesNames.registerDev,
+        builder: (context, state) =>
+            BlocProvider(
+              create: (context) => AuthenticationCubit(),
+              child: CreateAccountScreen(),
+            ),
+      ),
+      GoRoute(
         path: Routes.login,
         name: RoutesNames.login,
-        builder: (context, state) => BlocProvider(
-          create: (context) => AuthenticationCubit(),
-          child: LoginScreen(),
-        ),
+        builder: (context, state) =>
+            BlocProvider(
+              create: (context) => AuthenticationCubit(),
+              child: LoginScreen(),
+            ),
         routes: [
           // GoRoute(
           //   path: Routes.register,

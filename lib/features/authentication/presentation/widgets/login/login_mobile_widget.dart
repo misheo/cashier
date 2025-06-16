@@ -9,6 +9,7 @@ import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../manager/authentication_cubit.dart';
+import '../general/create_account_button.dart';
 
 class LoginMobileWidget extends StatefulWidget {
   const LoginMobileWidget({super.key});
@@ -74,14 +75,8 @@ class _LoginMobileWidgetState extends State<LoginMobileWidget> {
                 ),
               ],
             ),
-            devMood
-                ? AppButton(
-                    text: context.tr('dev_login'),
-                    onTap: () {
-                      provider.createAccount(context);
-                    },
-                  )
-                : const SizedBox(),
+            CreateAccountButton()
+
           ],
         ),
       ),

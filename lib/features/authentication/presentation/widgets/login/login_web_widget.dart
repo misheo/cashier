@@ -9,6 +9,7 @@ import '../../../../../core/widgets/text_fields/app_text_field.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../manager/authentication_cubit.dart';
+import '../general/create_account_button.dart';
 
 class LoginWebWidget extends StatefulWidget {
   const LoginWebWidget({super.key});
@@ -76,6 +77,7 @@ class _LoginWebWidgetState extends State<LoginWebWidget> {
                     ),
                   ],
                 ),
+                CreateAccountButton()
               ],
             ),
           ),

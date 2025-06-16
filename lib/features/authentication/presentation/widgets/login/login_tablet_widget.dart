@@ -8,6 +8,7 @@ import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../../../../gen/assets.gen.dart';
 import '../../manager/authentication_cubit.dart';
+import '../general/create_account_button.dart';
 
 class LoginTabletWidget extends StatefulWidget {
   const LoginTabletWidget({super.key});
@@ -75,7 +76,7 @@ class _LoginTabletWidgetState extends State<LoginTabletWidget> {
                     ),
                   ],
                 ),
-
+                CreateAccountButton()
               ],
             ),
           ),

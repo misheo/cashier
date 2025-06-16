@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/help.dart';
 import '../../../../core/widgets/app_scaffold.dart';
+import '../widgets/dev_register/register_web.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({super.key});
@@ -18,7 +19,7 @@ class CreateAccountScreen extends StatelessWidget {
           return const Center(child: Text('CreateAccountScreen Mobile'),);
         }
         else {
-          return const Center(child: Text('CreateAccountScreen Web'),);
+          return RegisterWeb();
         }
       }),
     );
