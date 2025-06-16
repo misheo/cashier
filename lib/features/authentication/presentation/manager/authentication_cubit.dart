@@ -23,6 +23,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
 
 
+
   void changePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
   }
