@@ -10,9 +10,14 @@ import '../../../../../core/widgets/dropdowens/deop_dowen_with_check_box.dart';
 import '../../../../../core/widgets/text_fields/text_fields_with_label.dart';
 import '../../manager/authentication_cubit.dart';
 
-class RegisterWeb extends StatelessWidget {
+class RegisterWeb extends StatefulWidget {
   const RegisterWeb({super.key});
 
+  @override
+  State<RegisterWeb> createState() => _RegisterWebState();
+}
+
+class _RegisterWebState extends State<RegisterWeb> {
   @override
   Widget build(BuildContext context) {
     final provider = context.read<AuthenticationCubit>();
@@ -35,7 +40,7 @@ class RegisterWeb extends StatelessWidget {
                   child: TextFieldsWithLabel(
                     labelText: context.tr('username'),
                     hintText: context.tr('username'),
-                    controller: TextEditingController(),
+                    controller: provider.userNameController,
                     validator: (String? value) {},
                     showCounter: false,
                   ),
@@ -43,8 +48,12 @@ class RegisterWeb extends StatelessWidget {
                 Expanded(
                   child: DropDownWithCheckBox(
                     allOptions: EmployeeSettings().permissions,
-                    selectedOptions: [],
-                    onOptionSelected: (String label) {},
+                    selectedOptions: provider.permissions,
+                    onOptionSelected: (String label ,{ List<String> ? selectedOptions }) {
+                      provider.addPermission(label , newPermissions: selectedOptions);
+                      setState(() {});
+
+                    },
                   ),
                 ),
               ],
@@ -56,16 +65,16 @@ class RegisterWeb extends StatelessWidget {
                   child: TextFieldsWithLabel(
                     labelText: context.tr('password'),
                     hintText: context.tr('password'),
-                    controller: TextEditingController(),
+                    controller: provider.passwordController,
                     validator: (String? value) {},
                     showCounter: false,
                   ),
                 ),
                 Expanded(
                   child: TextFieldsWithLabel(
-                    labelText: context.tr('password'),
-                    hintText: context.tr('password'),
-                    controller: TextEditingController(),
+                    labelText: context.tr('verify_password'),
+                    hintText: context.tr('verify_password'),
+                    controller: provider.passwordVerifyController,
                     validator: (String? value) {},
                     showCounter: false,
                   ),

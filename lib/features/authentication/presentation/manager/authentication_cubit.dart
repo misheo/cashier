@@ -15,38 +15,48 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(const AuthenticationState.initial());
   Help help = Help();
   final formKey = GlobalKey<FormState>();
+
   bool isPasswordVisible = false;
   bool isPasswordVerifyVisible = false;
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
 
   final passwordVerifyController = TextEditingController();
-
-
-
+  List<String> permissions = [];
 
   void changePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
   }
 
   void login(BuildContext context) async {
-    if(formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       final res = await authRepo.login(
         email: userNameController.text,
         password: passwordController.text,
       );
       res.when(
         success: (data) => emit(AuthenticationState.successLogin()),
-        failure: (message) =>
-            emit(
-              AuthenticationState.errorLogin(
-                  message: help.mapToString(message)),
-            ),
+        failure: (message) => emit(
+          AuthenticationState.errorLogin(message: help.mapToString(message)),
+        ),
       );
     }
   }
 
   void createAccount(BuildContext context) {
-    context.pushReplacementNamed(RoutesNames.registerDev) ;
+    context.pushReplacementNamed(RoutesNames.registerDev);
+  }
+
+  void addPermission(String label, {List<String>? newPermissions}) {
+    if (newPermissions != null) {
+      permissions.clear();
+      for (var element in newPermissions) {
+        permissions.add(element);
+      }
+    }
+    if (permissions.contains(label)) {
+      permissions.remove(label);
+    }
+    permissions.add(label);
   }
 }

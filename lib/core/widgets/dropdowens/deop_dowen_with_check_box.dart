@@ -4,60 +4,89 @@ import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 
 class DropDownWithCheckBox extends StatefulWidget {
-  const DropDownWithCheckBox({super.key, required this.allOptions, required this.selectedOptions, required this.onOptionSelected});
-  final List<String> allOptions  ;
-  final List<String> selectedOptions ;
-  final void Function(String label) onOptionSelected;
-
+  const DropDownWithCheckBox({
+    super.key,
+    required this.allOptions,
+    required this.selectedOptions,
+    required this.onOptionSelected,
+    this.label,
+    this.hint,
+  });
+  final List<String> allOptions;
+  final List<String> selectedOptions;
+  final void Function(String label ,{ List<String> ? selectedOptions }) onOptionSelected;
+  final String? label;
+  final String? hint;
 
   @override
   _DropDownWithCheckBoxState createState() => _DropDownWithCheckBoxState();
 }
 
 class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
-
-
   void _showMultiSelectDialog() async {
-    final List<String> result = await showDialog(
+    final List<String>? result = await showDialog<List<String>>(
       context: context,
       builder: (context) {
         List<String> tempSelected = List.from(widget.selectedOptions);
-        return AlertDialog(
-          title: Text(context.tr("select_options")),
-          content: SingleChildScrollView(
-            child: Column(
-              children: widget.allOptions.map((option) {
-                return CheckboxListTile(
-                  value: tempSelected.contains(option),
-                  title: Text(option),
-                  onChanged: (value) {
-                    widget.onOptionSelected(option);
-                  },
-                );
-              }).toList(),
-            ),
-          ),
-          actions: [
-            TextButton(
-              child: Text('Cancel'),
-              onPressed: () => Navigator.pop(context, widget.selectedOptions),
-            ),
-            ElevatedButton(
-              child: Text('OK'),
-              onPressed: () => Navigator.pop(context, tempSelected),
-            ),
-          ],
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: Text(context.tr("selectOptions")),
+              content: SingleChildScrollView(
+                child: Column(
+                  children: widget.allOptions.map((option) {
+                    return CheckboxListTile(
+                      value: tempSelected.contains(option),
+                      title: Text(option),
+                      onChanged: (value) {
+                        setState(() {
+                          if (value == true) {
+                            tempSelected.add(option);
+                          } else {
+                            tempSelected.remove(option);
+                          }
+                        });
+                      },
+                    );
+                  }).toList(),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  child: Text(context.tr('Cancel')),
+                  onPressed: () => Navigator.pop(context),
+                ),
+                ElevatedButton(
+                  child: Text(context.tr('OK')),
+                  onPressed: () => Navigator.pop(context, tempSelected),
+                ),
+              ],
+            );
+          },
         );
       },
     );
 
-
+    if (result != null) {
+      // Update the selected options by calling onOptionSelected for each change
+      // First remove options that were deselected
+      for (var option in widget.selectedOptions) {
+        if (!result.contains(option)) {
+          widget.onOptionSelected(option);
+        }
+      }
+      // Then add newly selected options
+      for (var option in result) {
+        if (!widget.selectedOptions.contains(option)) {
+          widget.onOptionSelected(option);
+        }
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: fieldSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(context.tr("select") , style: Theme.of(context).textTheme.headlineSmall,),
@@ -75,7 +104,7 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
                 Expanded(
                   child: Text(
                     widget.selectedOptions.isEmpty
-                        ? context.tr('Select_options')
+                        ? widget.hint ?? context.tr('selectOptions')
                         : widget.selectedOptions.join(', '),
                   ),
                 ),
