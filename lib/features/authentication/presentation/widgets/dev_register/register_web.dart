@@ -1,4 +1,6 @@
 import 'package:cashier/core/widgets/app_scaffold.dart';
+import 'package:cashier/core/widgets/buttons/app_button.dart';
+import 'package:cashier/core/widgets/buttons/cir_check_box_widge.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,13 +49,17 @@ class _RegisterWebState extends State<RegisterWeb> {
                 ),
                 Expanded(
                   child: DropDownWithCheckBox(
+                    label: context.tr('permissions'),
                     allOptions: EmployeeSettings().permissions,
                     selectedOptions: provider.permissions,
-                    onOptionSelected: (String label ,{ List<String> ? selectedOptions }) {
-                      provider.addPermission(label , newPermissions: selectedOptions);
-                      setState(() {});
-
-                    },
+                    onOptionSelected:
+                        (String label, {List<String>? selectedOptions}) {
+                          provider.addPermission(
+                            label,
+                            newPermissions: selectedOptions,
+                          );
+                          setState(() {});
+                        },
                   ),
                 ),
               ],
@@ -78,6 +84,66 @@ class _RegisterWebState extends State<RegisterWeb> {
                     validator: (String? value) {},
                     showCounter: false,
                   ),
+                ),
+              ],
+            ),
+            Row(
+              spacing: 40,
+              children: [
+                Expanded(
+                  child: TextFieldsWithLabel(
+                    labelText: context.tr('name'),
+                    hintText: context.tr('name'),
+                    controller: provider.nameController,
+                    validator: (String? value) {},
+                    showCounter: false,
+                  ),
+                ),
+                Expanded(
+                  child: TextFieldsWithLabel(
+                    labelText: context.tr('phone'),
+                    hintText: context.tr('phone'),
+                    controller: provider.nameController,
+                    validator: (String? value) {},
+                    showCounter: false,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ) ,
+            Row(
+              children: [
+                CirCheckBoxWidget(
+                  value: provider.isAdminRegister,
+                  onChanged: (value) {
+                    provider.isAdminRegister = value ?? false;
+                    setState(() {});
+                  },
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+                Text(
+                  context.tr('admin'),
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                CirCheckBoxWidget(
+                  value: provider.isDeveloperRegister,
+                  onChanged: (value) {
+                    provider.isDeveloperRegister = value ?? false;
+                    setState(() {});
+                  },
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+                Text(
+                  context.tr('developer'),
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                Spacer(),
+                AppButton(
+                  text: context.tr('register'),
+                  onTap: () {},
+                  bgColor: Theme.of(context).colorScheme.onPrimary,
                 ),
               ],
             ),

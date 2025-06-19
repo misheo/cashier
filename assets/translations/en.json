@@ -33,5 +33,6 @@
   "cartCheckoutName": "Name" ,
   "username": "User Name" ,
   "selectOptions": "Select options" ,
-  "verify_password": "Verify Password"
+  "verify_password": "Verify Password",
+  "admin" : "Admin"
 }

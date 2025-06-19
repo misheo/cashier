@@ -24,6 +24,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   final passwordVerifyController = TextEditingController();
   List<String> permissions = [];
 
+  var nameController = TextEditingController();
+
+  bool isAdminRegister = false;
+
+  bool isDeveloperRegister =false;
+
   void changePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
   }

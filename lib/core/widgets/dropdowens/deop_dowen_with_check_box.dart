@@ -12,9 +12,10 @@ class DropDownWithCheckBox extends StatefulWidget {
     this.label,
     this.hint,
   });
+
   final List<String> allOptions;
   final List<String> selectedOptions;
-  final void Function(String label ,{ List<String> ? selectedOptions }) onOptionSelected;
+  final void Function(String label, {List<String>? selectedOptions}) onOptionSelected;
   final String? label;
   final String? hint;
 
@@ -31,7 +32,7 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text(context.tr("selectOptions")),
+              title: Text(tr("selectOptions")),
               content: SingleChildScrollView(
                 child: Column(
                   children: widget.allOptions.map((option) {
@@ -53,11 +54,11 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
               ),
               actions: [
                 TextButton(
-                  child: Text(context.tr('Cancel')),
+                  child: Text(tr('Cancel')),
                   onPressed: () => Navigator.pop(context),
                 ),
                 ElevatedButton(
-                  child: Text(context.tr('OK')),
+                  child: Text(tr('OK')),
                   onPressed: () => Navigator.pop(context, tempSelected),
                 ),
               ],
@@ -68,19 +69,7 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
     );
 
     if (result != null) {
-      // Update the selected options by calling onOptionSelected for each change
-      // First remove options that were deselected
-      for (var option in widget.selectedOptions) {
-        if (!result.contains(option)) {
-          widget.onOptionSelected(option);
-        }
-      }
-      // Then add newly selected options
-      for (var option in result) {
-        if (!widget.selectedOptions.contains(option)) {
-          widget.onOptionSelected(option);
-        }
-      }
+      widget.onOptionSelected(widget.label ?? '', selectedOptions: result);
     }
   }
 
@@ -89,11 +78,18 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(context.tr("select") , style: Theme.of(context).textTheme.headlineSmall,),
+        if (widget.label != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              widget.label!.tr(),
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ),
         InkWell(
           onTap: _showMultiSelectDialog,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
               borderRadius: BorderRadius.circular(containerRadius),
@@ -104,11 +100,12 @@ class _DropDownWithCheckBoxState extends State<DropDownWithCheckBox> {
                 Expanded(
                   child: Text(
                     widget.selectedOptions.isEmpty
-                        ? widget.hint ?? context.tr('selectOptions')
+                        ? widget.hint ?? tr('selectOptions')
                         : widget.selectedOptions.join(', '),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
-                Icon(Icons.arrow_drop_down),
+                const Icon(Icons.arrow_drop_down),
               ],
             ),
           ),

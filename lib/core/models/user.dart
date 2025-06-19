@@ -41,6 +41,8 @@ class User {
 
   @HiveField(11)
   bool isAdmin ;
+  @HiveField(11)
+  bool isDeveloper ;
 
   User({
     required this.id,
@@ -55,6 +57,7 @@ class User {
     this.status,
     this.createdAt,
     this.updatedAt,
+    this.isDeveloper = false
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

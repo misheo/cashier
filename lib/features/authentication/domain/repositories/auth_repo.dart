@@ -18,6 +18,7 @@ class AuthRepository {
     required String phone,
     bool isAdmin = false,
     List<String> permissions = const [],
+    bool isDeveloper = false,
   }) async {
     final box = await Hive.openBox<User>(_boxName);
 
@@ -37,6 +38,7 @@ class AuthRepository {
       permissions: permissions,
       phone: phone,
       createdAt: DateTime.now().toIso8601String(),
+      isDeveloper: isDeveloper,
     );
 
     await box.put(user.id, user);
