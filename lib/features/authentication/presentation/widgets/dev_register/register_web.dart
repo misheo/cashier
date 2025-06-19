@@ -103,7 +103,7 @@ class _RegisterWebState extends State<RegisterWeb> {
                   child: TextFieldsWithLabel(
                     labelText: context.tr('phone'),
                     hintText: context.tr('phone'),
-                    controller: provider.nameController,
+                    controller: provider.phoneController,
                     validator: (String? value) {},
                     showCounter: false,
                   ),

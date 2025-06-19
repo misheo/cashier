@@ -21,6 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
   status: json['status'] as String?,
   createdAt: json['createdAt'] as String?,
   updatedAt: json['updatedAt'] as String?,
+  isDeveloper: json['isDeveloper'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -36,4 +37,5 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'updatedAt': instance.updatedAt,
   'permissions': instance.permissions,
   'isAdmin': instance.isAdmin,
+  'isDeveloper': instance.isDeveloper,
 };

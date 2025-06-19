@@ -41,7 +41,7 @@ class User {
 
   @HiveField(11)
   bool isAdmin ;
-  @HiveField(11)
+  @HiveField(12)
   bool isDeveloper ;
 
   User({

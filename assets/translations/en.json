@@ -34,5 +34,7 @@
   "username": "User Name" ,
   "selectOptions": "Select options" ,
   "verify_password": "Verify Password",
-  "admin" : "Admin"
+  "admin" : "Admin" ,
+  "developer" : "Developer" ,
+  "youMustHaveAtLeastOnePermission" : "You must have at least one permission"
 }

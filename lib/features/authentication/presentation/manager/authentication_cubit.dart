@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cashier/core/router/routes.dart';
 import 'package:cashier/core/utils/help.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
@@ -28,7 +29,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   bool isAdminRegister = false;
 
-  bool isDeveloperRegister =false;
+  bool isDeveloperRegister = false;
+
+  var phoneController = TextEditingController();
 
   void changePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
@@ -64,5 +67,33 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       permissions.remove(label);
     }
     permissions.add(label);
+  }
+
+  void registerDev(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      emit(const AuthenticationState.registerLoading());
+      if (permissions.isEmpty) {
+        emit(
+          AuthenticationState.registerError(
+            message: context.tr("youMustHaveAtLeastOnePermission"),
+          ),
+        );
+      }
+
+      final res = await authRepo.registerUser(
+        name: nameController.text,
+        email: userNameController.text,
+        password: passwordController.text,
+        phone: phoneController.text,
+        isDeveloper: isDeveloperRegister,
+        isAdmin: isAdminRegister,
+      );
+      res.when(
+        success: (data) => emit(AuthenticationState.registerSuccess()),
+        failure: (message) => emit(
+          AuthenticationState.registerError(message: help.mapToString(message)),
+        ),
+      );
+    }
   }
 }

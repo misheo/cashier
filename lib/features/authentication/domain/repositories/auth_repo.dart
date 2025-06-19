@@ -11,7 +11,7 @@ class AuthRepository {
   final _uuid = Uuid();
   final String _boxName = 'users';
 
-  Future<void> registerUser({
+  Future<Result<User>> registerUser({
     required String name,
     required String email,
     required String password,
@@ -40,8 +40,20 @@ class AuthRepository {
       createdAt: DateTime.now().toIso8601String(),
       isDeveloper: isDeveloper,
     );
+bool isSuccess = false;
+Map<String, dynamic> error = {};
+    await box.put(user.id, user).then(
+        (value) =>isSuccess = true,
+        onError: (e) => error = {'message': e.toString()},
 
-    await box.put(user.id, user);
+    );
+
+    if (isSuccess) {
+      return Result.success(user);
+    } else {
+      return Result.failure(error);
+    }
+
   }
 
   Future<Result<User?>> login({
