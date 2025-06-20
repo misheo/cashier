@@ -12,8 +12,7 @@ part of 'result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Result<T> {
@@ -21,34 +20,40 @@ mixin _$Result<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
     required TResult Function(Map<String, dynamic> message) failure,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
     TResult? Function(Map<String, dynamic> message)? failure,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
     TResult Function(Map<String, dynamic> message)? failure,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ResultSuccess<T> value) success,
     required TResult Function(ResultFailure<T> value) failure,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ResultSuccess<T> value)? success,
     TResult? Function(ResultFailure<T> value)? failure,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -73,10 +78,9 @@ class _$ResultCopyWithImpl<T, $Res, $Val extends Result<T>>
 
 /// @nodoc
 abstract class _$$ResultSuccessImplCopyWith<T, $Res> {
-  factory _$$ResultSuccessImplCopyWith(
-    _$ResultSuccessImpl<T> value,
-    $Res Function(_$ResultSuccessImpl<T>) then,
-  ) = __$$ResultSuccessImplCopyWithImpl<T, $Res>;
+  factory _$$ResultSuccessImplCopyWith(_$ResultSuccessImpl<T> value,
+          $Res Function(_$ResultSuccessImpl<T>) then) =
+      __$$ResultSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
@@ -85,24 +89,23 @@ abstract class _$$ResultSuccessImplCopyWith<T, $Res> {
 class __$$ResultSuccessImplCopyWithImpl<T, $Res>
     extends _$ResultCopyWithImpl<T, $Res, _$ResultSuccessImpl<T>>
     implements _$$ResultSuccessImplCopyWith<T, $Res> {
-  __$$ResultSuccessImplCopyWithImpl(
-    _$ResultSuccessImpl<T> _value,
-    $Res Function(_$ResultSuccessImpl<T>) _then,
-  ) : super(_value, _then);
+  __$$ResultSuccessImplCopyWithImpl(_$ResultSuccessImpl<T> _value,
+      $Res Function(_$ResultSuccessImpl<T>) _then)
+      : super(_value, _then);
 
   /// Create a copy of Result
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? data = freezed}) {
-    return _then(
-      _$ResultSuccessImpl<T>(
-        freezed == data
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as T,
-      ),
-    );
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$ResultSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
   }
 }
 
@@ -138,9 +141,7 @@ class _$ResultSuccessImpl<T> implements ResultSuccess<T> {
   @pragma('vm:prefer-inline')
   _$$ResultSuccessImplCopyWith<T, _$ResultSuccessImpl<T>> get copyWith =>
       __$$ResultSuccessImplCopyWithImpl<T, _$ResultSuccessImpl<T>>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -219,10 +220,9 @@ abstract class ResultSuccess<T> implements Result<T> {
 
 /// @nodoc
 abstract class _$$ResultFailureImplCopyWith<T, $Res> {
-  factory _$$ResultFailureImplCopyWith(
-    _$ResultFailureImpl<T> value,
-    $Res Function(_$ResultFailureImpl<T>) then,
-  ) = __$$ResultFailureImplCopyWithImpl<T, $Res>;
+  factory _$$ResultFailureImplCopyWith(_$ResultFailureImpl<T> value,
+          $Res Function(_$ResultFailureImpl<T>) then) =
+      __$$ResultFailureImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Map<String, dynamic> message});
 }
@@ -231,24 +231,23 @@ abstract class _$$ResultFailureImplCopyWith<T, $Res> {
 class __$$ResultFailureImplCopyWithImpl<T, $Res>
     extends _$ResultCopyWithImpl<T, $Res, _$ResultFailureImpl<T>>
     implements _$$ResultFailureImplCopyWith<T, $Res> {
-  __$$ResultFailureImplCopyWithImpl(
-    _$ResultFailureImpl<T> _value,
-    $Res Function(_$ResultFailureImpl<T>) _then,
-  ) : super(_value, _then);
+  __$$ResultFailureImplCopyWithImpl(_$ResultFailureImpl<T> _value,
+      $Res Function(_$ResultFailureImpl<T>) _then)
+      : super(_value, _then);
 
   /// Create a copy of Result
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? message = null}) {
-    return _then(
-      _$ResultFailureImpl<T>(
-        null == message
-            ? _value._message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as Map<String, dynamic>,
-      ),
-    );
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ResultFailureImpl<T>(
+      null == message
+          ? _value._message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
   }
 }
 
@@ -256,7 +255,7 @@ class __$$ResultFailureImplCopyWithImpl<T, $Res>
 
 class _$ResultFailureImpl<T> implements ResultFailure<T> {
   const _$ResultFailureImpl(final Map<String, dynamic> message)
-    : _message = message;
+      : _message = message;
 
   final Map<String, dynamic> _message;
   @override
@@ -290,9 +289,7 @@ class _$ResultFailureImpl<T> implements ResultFailure<T> {
   @pragma('vm:prefer-inline')
   _$$ResultFailureImplCopyWith<T, _$ResultFailureImpl<T>> get copyWith =>
       __$$ResultFailureImplCopyWithImpl<T, _$ResultFailureImpl<T>>(
-        this,
-        _$identity,
-      );
+          this, _$identity);
 
   @override
   @optionalTypeArgs

@@ -78,22 +78,24 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
             message: context.tr("youMustHaveAtLeastOnePermission"),
           ),
         );
+      } else {
+        final res = await authRepo.registerUser(
+          name: nameController.text,
+          email: userNameController.text,
+          password: passwordController.text,
+          phone: phoneController.text,
+          isDeveloper: isDeveloperRegister,
+          isAdmin: isAdminRegister,
+        );
+        res.when(
+          success: (data) => emit(AuthenticationState.registerSuccess()),
+          failure: (message) => emit(
+            AuthenticationState.registerError(
+              message: help.mapToString(message),
+            ),
+          ),
+        );
       }
-
-      final res = await authRepo.registerUser(
-        name: nameController.text,
-        email: userNameController.text,
-        password: passwordController.text,
-        phone: phoneController.text,
-        isDeveloper: isDeveloperRegister,
-        isAdmin: isAdminRegister,
-      );
-      res.when(
-        success: (data) => emit(AuthenticationState.registerSuccess()),
-        failure: (message) => emit(
-          AuthenticationState.registerError(message: help.mapToString(message)),
-        ),
-      );
     }
   }
 }
