@@ -38,6 +38,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   void login(BuildContext context) async {
+    emit(const AuthenticationState.loadingLogin());
     if (formKey.currentState!.validate()) {
       final res = await authRepo.login(
         email: userNameController.text,
