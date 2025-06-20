@@ -1,8 +1,12 @@
-void showSuccessAction1(String message) {
+import 'package:flutter/material.dart';
+
+void showSuccessAction1(BuildContext context, {String ?message}) {
   // Show success action with a message
 }
 
-void showSuccessAction2(String message) {}
+void showSuccessAction2(BuildContext context, {String ?message}) {
+  showDialog(context: context, builder: (context) => AlertDialog());
+}
 
-void showLoadingAction(String message) {}
-void showLoadingAction2(String message) {}
+void showLoadingAction(BuildContext context, {String ?message}) {}
+void showLoadingAction2(BuildContext context, {String ?message}) {}
