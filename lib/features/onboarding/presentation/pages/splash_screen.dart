@@ -1,0 +1,24 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/router/routes.dart';
+import '../../../../gen/assets.gen.dart';
+import '../manager/boarding_help.dart';
+
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
+
+  @override
+  Widget build(BuildContext context)
+  {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final BoardingHelp help = BoardingHelp();
+
+      help.handelSplashNavigation(context);
+    });
+    return Scaffold(
+      body: Center(child: Assets.logo.logo.image(width: 200)),
+    );
+  }
+}
