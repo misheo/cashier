@@ -55,17 +55,16 @@ class AppRouter {
       ShellRoute(
         builder: (context, state, child) => AdminShell(child: child),
         routes: [
-          // GoRoute(
-          //   path: '/dashboard',
-          //   name: 'dashboard',
-          //   builder: (context, state) => const DashboardScreen(),
-          // ),
-          // GoRoute(
-          //   path: '/users',
-          //   name: 'users',
-          //   builder: (context, state) => const UsersScreen(),
-          // ),
-          // Add more nested routes here...
+          GoRoute(
+            path:Routes.dashboard,
+            name: RoutesNames.dashboard,
+            builder: (context, state) => const Placeholder(),
+          ),
+          GoRoute(
+            path: Routes.categories,
+            name: RoutesNames.categories,
+            builder: (context, state) => const Placeholder(),
+          ),
         ],
       ),
     ],

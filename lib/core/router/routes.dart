@@ -5,6 +5,8 @@ class Routes {
 
   static String registerDev = '/register-dev';
   static String splash = '/splash';
+  static String categories = '/categories';
+
 }
 
 class RoutesNames {
@@ -13,4 +15,5 @@ class RoutesNames {
   static String onBoarding = 'onBoarding';
   static String registerDev = 'register-dev';
   static String splash = 'splash';
+  static String categories = 'categories';
 }

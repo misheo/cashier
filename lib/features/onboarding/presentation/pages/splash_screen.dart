@@ -16,6 +16,7 @@ class SplashScreen extends StatelessWidget {
       final BoardingHelp help = BoardingHelp();
 
       help.handelSplashNavigation(context);
+
     });
     return Scaffold(
       body: Center(child: Assets.logo.logo.image(width: 200)),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/manager/user_cubit.dart';
 import '../../../../../core/router/routes.dart';
 import '../../manager/authentication_cubit.dart';
 
@@ -21,7 +22,9 @@ class LoginListener extends StatelessWidget {
           errorLogin: (message) => ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(message))),
-          successLogin: () {
+          successLogin: (user) {
+            BlocProvider.of<UserCubit>(context).auth(user);
+
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Login Successfully')),
             );

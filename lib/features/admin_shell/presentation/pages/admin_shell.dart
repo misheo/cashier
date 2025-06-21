@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/router/routes.dart';
 import '../../../../core/utils/help.dart';
+import '../../../../gen/assets.gen.dart';
 
 class AdminShell extends StatelessWidget {
   final Widget child;
@@ -11,16 +14,34 @@ class AdminShell extends StatelessWidget {
   Widget build(BuildContext context) {
     Help help = Help();
     return AdminScaffold(
-      sideBar:SideBar(items: [], selectedRoute: '',),
-        body: child) ;
-    return LayoutBuilder(builder: (context, constraints) {
-      if(help.isMobile(context)){
+      appBar: AppBar(),
+      // backgroundColor: Theme.of(context).colorScheme.,
 
-      }else if(help.isTablet(context)){
+      leadingIcon: ImageIcon(Assets.logo.logo.image().image),
+      sideBar: SideBar(
+        items: [
+          AdminMenuItem(
+            title: 'Dashboard',
+            route: Routes.dashboard,
+            icon: Icons.dashboard,
+          ),
 
-      }else {
-
-      }
-    });
+          AdminMenuItem(
+            title: "Categories",
+            route: Routes.categories,
+            icon: Icons.settings,
+          ),
+        ],
+        selectedRoute: GoRouterState.of(context).uri.path,
+      ),
+      body: child,
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (help.isMobile(context)) {
+        } else if (help.isTablet(context)) {
+        } else {}
+      },
+    );
   }
 }

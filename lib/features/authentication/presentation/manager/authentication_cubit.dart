@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/models/user.dart';
 import '../../domain/repositories/auth_repo.dart';
 
 part 'authentication_state.dart';
@@ -45,7 +46,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         password: passwordController.text,
       );
       res.when(
-        success: (data) => emit(AuthenticationState.successLogin()),
+        success: (data) => emit(AuthenticationState.successLogin(data!)),
         failure: (message) => emit(
           AuthenticationState.errorLogin(message: help.mapToString(message)),
         ),
