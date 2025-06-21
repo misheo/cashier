@@ -8,14 +8,8 @@ part 'user_cubit.freezed.dart';
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
-  final AuthRepository _authRepository;
-  UserCubit(this._authRepository) : super(const UserState.initial());
+  UserCubit() : super(const UserState.initial());
 
-  Future<void> login(String username, String password) async {
-    emit(const UserState.loading());
-    final result = await _authRepository.login(
-      email: username,
-      password: password,
-    );
-  }
+
+
 }
