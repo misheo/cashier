@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/admin_shell/presentation/pages/admin_shell.dart';
 import '../../features/authentication/presentation/pages/login_screen.dart';
+import '../../features/categories /presentation/pages/categories_screen.dart';
 import '../utils/constants.dart';
 import 'routes.dart';
 
@@ -63,7 +64,7 @@ class AppRouter {
           GoRoute(
             path: Routes.categories,
             name: RoutesNames.categories,
-            builder: (context, state) => const Placeholder(),
+            builder: (context, state) => const CategoriesScreen(),
           ),
         ],
       ),
