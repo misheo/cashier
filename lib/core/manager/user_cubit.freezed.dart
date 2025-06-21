@@ -19,6 +19,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(User user) auth,
     required TResult Function() unAuth,
   }) =>
@@ -26,6 +27,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(User user)? auth,
     TResult? Function()? unAuth,
   }) =>
@@ -33,6 +35,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(User user)? auth,
     TResult Function()? unAuth,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingAuth value) loading,
     required TResult Function(Auth value) auth,
     required TResult Function(UnAuth value) unAuth,
   }) =>
@@ -48,6 +52,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingAuth value)? loading,
     TResult? Function(Auth value)? auth,
     TResult? Function(UnAuth value)? unAuth,
   }) =>
@@ -55,6 +60,7 @@ mixin _$UserState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(LoadingAuth value)? loading,
     TResult Function(Auth value)? auth,
     TResult Function(UnAuth value)? unAuth,
     required TResult orElse(),
@@ -124,6 +130,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(User user) auth,
     required TResult Function() unAuth,
   }) {
@@ -134,6 +141,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(User user)? auth,
     TResult? Function()? unAuth,
   }) {
@@ -144,6 +152,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(User user)? auth,
     TResult Function()? unAuth,
     required TResult orElse(),
@@ -158,6 +167,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingAuth value) loading,
     required TResult Function(Auth value) auth,
     required TResult Function(UnAuth value) unAuth,
   }) {
@@ -168,6 +178,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingAuth value)? loading,
     TResult? Function(Auth value)? auth,
     TResult? Function(UnAuth value)? unAuth,
   }) {
@@ -178,6 +189,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(LoadingAuth value)? loading,
     TResult Function(Auth value)? auth,
     TResult Function(UnAuth value)? unAuth,
     required TResult orElse(),
@@ -191,6 +203,123 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements UserState {
   const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingAuthImplCopyWith<$Res> {
+  factory _$$LoadingAuthImplCopyWith(
+          _$LoadingAuthImpl value, $Res Function(_$LoadingAuthImpl) then) =
+      __$$LoadingAuthImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingAuthImplCopyWithImpl<$Res>
+    extends _$UserStateCopyWithImpl<$Res, _$LoadingAuthImpl>
+    implements _$$LoadingAuthImplCopyWith<$Res> {
+  __$$LoadingAuthImplCopyWithImpl(
+      _$LoadingAuthImpl _value, $Res Function(_$LoadingAuthImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadingAuthImpl implements LoadingAuth {
+  const _$LoadingAuthImpl();
+
+  @override
+  String toString() {
+    return 'UserState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadingAuthImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(User user) auth,
+    required TResult Function() unAuth,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(User user)? auth,
+    TResult? Function()? unAuth,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(User user)? auth,
+    TResult Function()? unAuth,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingAuth value) loading,
+    required TResult Function(Auth value) auth,
+    required TResult Function(UnAuth value) unAuth,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingAuth value)? loading,
+    TResult? Function(Auth value)? auth,
+    TResult? Function(UnAuth value)? unAuth,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(LoadingAuth value)? loading,
+    TResult Function(Auth value)? auth,
+    TResult Function(UnAuth value)? unAuth,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingAuth implements UserState {
+  const factory LoadingAuth() = _$LoadingAuthImpl;
 }
 
 /// @nodoc
@@ -261,6 +390,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(User user) auth,
     required TResult Function() unAuth,
   }) {
@@ -271,6 +401,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(User user)? auth,
     TResult? Function()? unAuth,
   }) {
@@ -281,6 +412,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(User user)? auth,
     TResult Function()? unAuth,
     required TResult orElse(),
@@ -295,6 +427,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingAuth value) loading,
     required TResult Function(Auth value) auth,
     required TResult Function(UnAuth value) unAuth,
   }) {
@@ -305,6 +438,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingAuth value)? loading,
     TResult? Function(Auth value)? auth,
     TResult? Function(UnAuth value)? unAuth,
   }) {
@@ -315,6 +449,7 @@ class _$AuthImpl implements Auth {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(LoadingAuth value)? loading,
     TResult Function(Auth value)? auth,
     TResult Function(UnAuth value)? unAuth,
     required TResult orElse(),
@@ -380,6 +515,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(User user) auth,
     required TResult Function() unAuth,
   }) {
@@ -390,6 +526,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(User user)? auth,
     TResult? Function()? unAuth,
   }) {
@@ -400,6 +537,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(User user)? auth,
     TResult Function()? unAuth,
     required TResult orElse(),
@@ -414,6 +552,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(LoadingAuth value) loading,
     required TResult Function(Auth value) auth,
     required TResult Function(UnAuth value) unAuth,
   }) {
@@ -424,6 +563,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
+    TResult? Function(LoadingAuth value)? loading,
     TResult? Function(Auth value)? auth,
     TResult? Function(UnAuth value)? unAuth,
   }) {
@@ -434,6 +574,7 @@ class _$UnAuthImpl implements UnAuth {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(LoadingAuth value)? loading,
     TResult Function(Auth value)? auth,
     TResult Function(UnAuth value)? unAuth,
     required TResult orElse(),
