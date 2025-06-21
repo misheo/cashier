@@ -30,6 +30,7 @@ dependencies:
   shared_preferences: ^2.5.3
   uuid: ^4.5.1
   freezed: ^2.4.7
+  flutter_admin_scaffold: ^1.4.0
 
 dev_dependencies:
   flutter_test:
