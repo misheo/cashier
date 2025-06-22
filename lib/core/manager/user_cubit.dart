@@ -13,6 +13,7 @@ class UserCubit extends Cubit<UserState> {
   UserCubit() : super(const UserState.initial());
   LocalStorage local = LocalStorage();
   AuthRepository authRepo = AuthRepository();
+  late User user;
 
 void auth(User user) {
   local.setString(PreferencesKeys.uid, user.id);
@@ -26,9 +27,13 @@ void auth(User user) {
     } else if(uid.isNotEmpty) {
       final res = await authRepo.getUserById(id: uid);
       res.when(
-        success: (data) => emit(UserState.auth(data!)),
+        success: (data) {
+          user = data!;
+          emit(UserState.auth(data)) ; },
         failure: (message) => emit(const UserState.unAuth()),
       );
     }
   }
+
+  void logout() {}
 }

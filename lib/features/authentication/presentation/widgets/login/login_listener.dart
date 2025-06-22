@@ -28,7 +28,7 @@ class LoginListener extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Login Successfully')),
             );
-            context.go(RoutesNames.dashboard);
+            context.goNamed(RoutesNames.dashboard);
           },
           loadingLogin: () => ScaffoldMessenger.of(
             context,
