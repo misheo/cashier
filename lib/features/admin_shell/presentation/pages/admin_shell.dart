@@ -10,18 +10,25 @@ import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/help.dart';
 import '../../../../gen/assets.gen.dart';
 
-class AdminShell extends StatelessWidget {
+class AdminShell extends StatefulWidget {
   final Widget child;
   const AdminShell({super.key, required this.child});
 
   @override
+  State<AdminShell> createState() => _AdminShellState();
+}
+
+class _AdminShellState extends State<AdminShell> {
+  @override
   Widget build(BuildContext context) {
     Help help = Help();
     final provider = context.read<UserCubit>();
+    // Get the current route location
+    final location = GoRouterState.of(context).uri.path;
+
     return AdminScaffold(
       appBar: AppBar(
         actions: [
-
           IconButton(
             onPressed: () {},
             icon: Row(children: [Icon(Icons.person), Text(provider.user.name)]),
@@ -34,8 +41,6 @@ class AdminShell extends StatelessWidget {
           ),
         ],
       ),
-
-      // backgroundColor: Theme.of(context).colorScheme.,
       leadingIcon: ImageIcon(
         Assets.logo.logo.image().image,
         color: Theme.of(context).colorScheme.primary,
@@ -46,30 +51,29 @@ class AdminShell extends StatelessWidget {
         onSelected: (route) {
           context.go(route.route ?? '/');
         },
+        borderColor: Theme.of(context).colorScheme.primaryContainer,
+        iconColor: Theme.of(context).colorScheme.onPrimaryContainer,
+        activeBackgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        activeIconColor: Theme.of(context).colorScheme.primary,
+        textStyle: Theme.of(context).textTheme.bodyLarge!,
+        activeTextStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+          color: Theme.of(context).colorScheme.primary,
+        ),
         items: [
           AdminMenuItem(
-            title: 'Dashboard',
+            title: context.tr("dashboard"),
             route: Routes.dashboard,
             icon: Icons.dashboard,
           ),
-
           AdminMenuItem(
             title: context.tr("categories"),
             route: Routes.categories,
             icon: Icons.category_outlined,
           ),
         ],
-        selectedRoute: GoRouterState.of(context).uri.path,
+        selectedRoute: location, // Use the current location
       ),
-
-      body: child,
-    );
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (help.isMobile(context)) {
-        } else if (help.isTablet(context)) {
-        } else {}
-      },
+      body: widget.child,
     );
   }
 }
